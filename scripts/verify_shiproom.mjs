@@ -1,0 +1,53 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import { chromium } from 'playwright';
+
+const chromePath = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
+const root = path.resolve('.');
+const pagePath = `file://${path.join(root, 'index.html')}`;
+const outDir = path.join(root, 'media');
+fs.mkdirSync(outDir, { recursive: true });
+
+const browser = await chromium.launch({
+  headless: true,
+  executablePath: chromePath,
+});
+
+try {
+  const page = await browser.newPage({ viewport: { width: 1440, height: 1000 } });
+  await page.goto(pagePath, { waitUntil: 'networkidle' });
+
+  const h1 = await page.locator('h1').innerText();
+  if (h1 !== 'Shiproom OS') {
+    throw new Error(`unexpected h1: ${h1}`);
+  }
+
+  await page.getByRole('button', { name: 'Build Packet' }).click();
+  const exportText = await page.locator('#exportOutput').innerText();
+  const packet = JSON.parse(exportText);
+  if (packet.product !== 'Shiproom OS') {
+    throw new Error('launch packet missing product');
+  }
+  if (!packet.proof_checklist.some((item) => item.includes('Novus.ai'))) {
+    throw new Error('Novus proof slot missing');
+  }
+
+  const cards = await page.locator('.section').count();
+  if (cards < 5) {
+    throw new Error(`not enough sections: ${cards}`);
+  }
+
+  const screenshot = path.join(outDir, 'shiproom-os-mvp-full.png');
+  await page.screenshot({ path: screenshot, fullPage: true });
+  const bytes = fs.statSync(screenshot).size;
+  if (bytes < 80_000) {
+    throw new Error(`screenshot too small: ${bytes}`);
+  }
+
+  console.log('shiproom_verify_ok');
+  console.log(`sections=${cards}`);
+  console.log(`screenshot=${screenshot}`);
+  console.log(`bytes=${bytes}`);
+} finally {
+  await browser.close();
+}

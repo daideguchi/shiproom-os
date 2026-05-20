@@ -1,0 +1,640 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Shiproom OS</title>
+  <style>
+    :root {
+      --bg: #f4f6f8;
+      --surface: #ffffff;
+      --ink: #17202a;
+      --muted: #617083;
+      --line: #d7e0ea;
+      --blue: #1d5f8f;
+      --blue-soft: #e6f2fb;
+      --green: #1f7a4d;
+      --green-soft: #e9f7ef;
+      --amber: #9a5a00;
+      --amber-soft: #fff3d6;
+      --red: #a33a2b;
+      --red-soft: #fae9e6;
+      --shadow: 0 14px 36px rgba(23, 32, 42, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.5;
+    }
+
+    button, input, textarea, select {
+      font: inherit;
+    }
+
+    .shell {
+      min-height: 100vh;
+      display: grid;
+      grid-template-rows: auto 1fr;
+    }
+
+    header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--line);
+      padding: 14px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      position: sticky;
+      top: 0;
+      z-index: 5;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .mark {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #1d5f8f, #1f7a4d);
+      display: grid;
+      place-items: center;
+      color: #fff;
+      font-weight: 900;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 18px;
+      letter-spacing: 0;
+      line-height: 1.2;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .top-actions {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .btn {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface);
+      color: var(--ink);
+      padding: 9px 12px;
+      cursor: pointer;
+      min-height: 40px;
+      font-weight: 750;
+    }
+
+    .btn.primary {
+      background: var(--blue);
+      border-color: var(--blue);
+      color: #fff;
+    }
+
+    .btn:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible {
+      outline: 3px solid rgba(29, 95, 143, 0.24);
+      outline-offset: 1px;
+    }
+
+    main {
+      max-width: 1380px;
+      margin: 0 auto;
+      padding: 18px;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 390px minmax(0, 1fr);
+      gap: 16px;
+    }
+
+    .panel {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+    }
+
+    .intake {
+      padding: 16px;
+      display: grid;
+      gap: 14px;
+      align-self: start;
+      position: sticky;
+      top: 86px;
+    }
+
+    .panel-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 2px;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: 18px;
+      letter-spacing: 0;
+    }
+
+    label {
+      display: grid;
+      gap: 6px;
+      color: var(--ink);
+      font-size: 13px;
+      font-weight: 750;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 10px 11px;
+      background: #fbfdff;
+      color: var(--ink);
+    }
+
+    textarea {
+      min-height: 112px;
+      resize: vertical;
+    }
+
+    .segmented {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 6px;
+    }
+
+    .segment {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 9px 8px;
+      background: #fbfdff;
+      text-align: center;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .segment.active {
+      color: var(--blue);
+      background: var(--blue-soft);
+      border-color: #a5c8e2;
+    }
+
+    .workspace {
+      display: grid;
+      gap: 16px;
+    }
+
+    .status-strip {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .metric {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 12px;
+      min-height: 88px;
+    }
+
+    .metric strong {
+      display: block;
+      font-size: 24px;
+      line-height: 1.1;
+    }
+
+    .metric span {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .board {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .section {
+      padding: 16px;
+      min-height: 260px;
+    }
+
+    .section.wide {
+      grid-column: 1 / -1;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .badge {
+      border-radius: 999px;
+      padding: 4px 8px;
+      font-size: 12px;
+      font-weight: 850;
+      white-space: nowrap;
+    }
+
+    .badge.green { background: var(--green-soft); color: var(--green); }
+    .badge.amber { background: var(--amber-soft); color: var(--amber); }
+    .badge.red { background: var(--red-soft); color: var(--red); }
+    .badge.blue { background: var(--blue-soft); color: var(--blue); }
+
+    .output {
+      display: grid;
+      gap: 10px;
+    }
+
+    .line-item {
+      border-top: 1px solid var(--line);
+      padding-top: 10px;
+    }
+
+    .line-item:first-child {
+      border-top: 0;
+      padding-top: 0;
+    }
+
+    .line-item b {
+      display: block;
+      margin-bottom: 2px;
+      font-size: 13px;
+    }
+
+    .line-item p, .line-item li {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .line-item p {
+      margin: 0;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(120px, 1fr));
+      gap: 8px;
+    }
+
+    .step {
+      border: 1px solid var(--line);
+      background: #fbfdff;
+      border-radius: 8px;
+      padding: 10px;
+      min-height: 104px;
+    }
+
+    .step span {
+      display: inline-flex;
+      width: 24px;
+      height: 24px;
+      border-radius: 999px;
+      background: var(--blue-soft);
+      color: var(--blue);
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 900;
+      margin-bottom: 8px;
+    }
+
+    .step b {
+      display: block;
+      font-size: 13px;
+      margin-bottom: 4px;
+    }
+
+    .step p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .export-box {
+      background: #10202e;
+      color: #e9f2f8;
+      border-radius: 8px;
+      padding: 14px;
+      white-space: pre-wrap;
+      overflow: auto;
+      min-height: 210px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 12px;
+    }
+
+    @media (max-width: 1040px) {
+      main {
+        grid-template-columns: 1fr;
+      }
+
+      .intake {
+        position: static;
+      }
+    }
+
+    @media (max-width: 760px) {
+      header {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .top-actions {
+        width: 100%;
+        justify-content: stretch;
+      }
+
+      .btn {
+        flex: 1;
+      }
+
+      .status-strip, .board {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header>
+      <div class="brand">
+        <div class="mark">S</div>
+        <div>
+          <h1>Shiproom OS</h1>
+          <div class="subtitle">Idea to shipped product packet</div>
+        </div>
+      </div>
+      <div class="top-actions">
+        <button class="btn" id="loadSample">Sample</button>
+        <button class="btn" id="copyPack">Copy Launch Pack</button>
+        <button class="btn primary" id="buildPack">Build Packet</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="panel intake" aria-label="Product intake">
+        <div class="panel-title">
+          <h2>Product Intake</h2>
+          <span class="badge blue">P0 MVP</span>
+        </div>
+
+        <label>
+          Rough idea
+          <textarea id="idea">A lightweight control room that helps solo builders ship AI-assisted products without losing the thread.</textarea>
+        </label>
+
+        <label>
+          Target user
+          <input id="user" value="solo builders with too many unfinished AI ideas">
+        </label>
+
+        <label>
+          Main pain
+          <input id="pain" value="they can generate ideas and code, but cannot reliably finish, prove, and launch">
+        </label>
+
+        <label>
+          Timebox
+          <select id="timebox">
+            <option>48 hours</option>
+            <option selected>7 days</option>
+            <option>30 days</option>
+          </select>
+        </label>
+
+        <label>
+          Launch mode
+          <div class="segmented" role="tablist" aria-label="Launch mode">
+            <button class="segment" data-mode="Quiet">Quiet</button>
+            <button class="segment active" data-mode="Proof">Proof</button>
+            <button class="segment" data-mode="Public">Public</button>
+          </div>
+        </label>
+      </section>
+
+      <section class="workspace" aria-label="Shipping workspace">
+        <div class="status-strip">
+          <div class="metric">
+            <strong id="scopeScore">82</strong>
+            <span>scope clarity</span>
+          </div>
+          <div class="metric">
+            <strong id="proofScore">5</strong>
+            <span>proof items</span>
+          </div>
+          <div class="metric">
+            <strong id="launchScore">7d</strong>
+            <span>launch window</span>
+          </div>
+          <div class="metric">
+            <strong id="riskScore">2</strong>
+            <span>open risks</span>
+          </div>
+        </div>
+
+        <div class="board">
+          <section class="panel section">
+            <div class="section-header">
+              <h2>Product Frame</h2>
+              <span class="badge green">clear enough</span>
+            </div>
+            <div class="output" id="frameOutput"></div>
+          </section>
+
+          <section class="panel section">
+            <div class="section-header">
+              <h2>First-Version Scope</h2>
+              <span class="badge amber">keep tight</span>
+            </div>
+            <div class="output" id="scopeOutput"></div>
+          </section>
+
+          <section class="panel section">
+            <div class="section-header">
+              <h2>Proof Checklist</h2>
+              <span class="badge blue">judge-ready</span>
+            </div>
+            <div class="output" id="proofOutput"></div>
+          </section>
+
+          <section class="panel section">
+            <div class="section-header">
+              <h2>Launch Copy</h2>
+              <span class="badge green">human review</span>
+            </div>
+            <div class="output" id="copyOutput"></div>
+          </section>
+
+          <section class="panel section wide">
+            <div class="section-header">
+              <h2>Shipping Timeline</h2>
+              <span class="badge red">no fake proof</span>
+            </div>
+            <div class="timeline" id="timelineOutput"></div>
+          </section>
+
+          <section class="panel section wide">
+            <div class="section-header">
+              <h2>Launch Pack Export</h2>
+              <span class="badge blue">copy-ready</span>
+            </div>
+            <pre class="export-box" id="exportOutput"></pre>
+          </section>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    const $ = (id) => document.getElementById(id);
+    let launchMode = 'Proof';
+
+    const sample = {
+      idea: 'A lightweight control room that helps solo builders ship AI-assisted products without losing the thread.',
+      user: 'solo builders with too many unfinished AI ideas',
+      pain: 'they can generate ideas and code, but cannot reliably finish, prove, and launch',
+      timebox: '7 days'
+    };
+
+    function clean(value, fallback) {
+      const text = String(value || '').trim();
+      return text || fallback;
+    }
+
+    function sentence(value) {
+      const text = clean(value, 'the product');
+      return text.charAt(0).toUpperCase() + text.slice(1).replace(/[.!?]+$/, '') + '.';
+    }
+
+    function buildPacket() {
+      const idea = clean($('idea').value, sample.idea);
+      const user = clean($('user').value, sample.user);
+      const pain = clean($('pain').value, sample.pain);
+      const timebox = clean($('timebox').value, sample.timebox);
+      const proofCount = launchMode === 'Quiet' ? 4 : launchMode === 'Public' ? 7 : 5;
+      const riskCount = launchMode === 'Public' ? 3 : 2;
+
+      $('scopeScore').textContent = Math.min(95, 58 + Math.round((idea.length + user.length + pain.length) / 9));
+      $('proofScore').textContent = String(proofCount);
+      $('launchScore').textContent = timebox.replace(' days', 'd').replace(' hours', 'h');
+      $('riskScore').textContent = String(riskCount);
+
+      const frame = [
+        ['Who it is for', sentence(user)],
+        ['Problem worth solving', sentence(pain)],
+        ['Promise', `Shiproom OS turns "${idea}" into a launchable packet instead of another unfinished idea.`],
+        ['Why now', 'AI can generate work quickly, so builders need a stricter system for finishing and proving it.']
+      ];
+
+      const scope = [
+        'One intake form for idea, target user, pain, and timebox.',
+        'A deterministic launch packet that can be reviewed by a human.',
+        'A proof checklist with no fake analytics claims.',
+        'A public launch-copy export.',
+        'A Novus.ai proof slot that remains blocked until installed and verified.'
+      ];
+
+      const proof = [
+        'Public URL loads without login.',
+        'Demo video shows the full idea-to-launch-packet flow.',
+        'README names the user, problem, solution, and limitations.',
+        'Novus.ai dashboard screenshot is attached after installation.',
+        'A human-reviewed launch packet is exported from the tool.'
+      ];
+
+      const copy = [
+        ['Tagline', 'Everyone can generate. Fewer people ship.'],
+        ['Launch post', `I built Shiproom OS for ${user}. It helps turn a rough idea into scope, proof, launch notes, and a reviewable public launch packet.`],
+        ['Boundary', 'This tool does not pretend a product shipped until a public URL, demo, and proof checklist exist.']
+      ];
+
+      const steps = [
+        ['Frame', 'Name the user and pain.'],
+        ['Cut', 'Choose the smallest credible version.'],
+        ['Build', 'Create the working product surface.'],
+        ['Prove', 'Attach URL, video, README, and analytics proof.'],
+        ['Launch', 'Publish with human-approved copy.']
+      ];
+
+      $('frameOutput').innerHTML = frame.map(([k, v]) => `<div class="line-item"><b>${k}</b><p>${v}</p></div>`).join('');
+      $('scopeOutput').innerHTML = `<ul>${scope.map((item) => `<li>${item}</li>`).join('')}</ul>`;
+      $('proofOutput').innerHTML = `<ul>${proof.map((item) => `<li>${item}</li>`).join('')}</ul>`;
+      $('copyOutput').innerHTML = copy.map(([k, v]) => `<div class="line-item"><b>${k}</b><p>${v}</p></div>`).join('');
+      $('timelineOutput').innerHTML = steps.map((step, index) => `<div class="step"><span>${index + 1}</span><b>${step[0]}</b><p>${step[1]}</p></div>`).join('');
+
+      const pack = {
+        product: 'Shiproom OS',
+        launch_mode: launchMode,
+        timebox,
+        idea,
+        target_user: user,
+        problem: pain,
+        promise: `Turn the idea into a launchable product packet with scope, proof, release notes, and launch copy.`,
+        first_version_scope: scope,
+        proof_checklist: proof,
+        launch_copy: Object.fromEntries(copy),
+        claim_boundary: 'Novus.ai and public launch proof must be attached before prize submission.'
+      };
+      $('exportOutput').textContent = JSON.stringify(pack, null, 2);
+    }
+
+    document.querySelectorAll('.segment').forEach((button) => {
+      button.addEventListener('click', () => {
+        document.querySelectorAll('.segment').forEach((item) => item.classList.remove('active'));
+        button.classList.add('active');
+        launchMode = button.dataset.mode;
+        buildPacket();
+      });
+    });
+
+    $('buildPack').addEventListener('click', buildPacket);
+    $('loadSample').addEventListener('click', () => {
+      $('idea').value = sample.idea;
+      $('user').value = sample.user;
+      $('pain').value = sample.pain;
+      $('timebox').value = sample.timebox;
+      buildPacket();
+    });
+    $('copyPack').addEventListener('click', async () => {
+      await navigator.clipboard.writeText($('exportOutput').textContent);
+      $('copyPack').textContent = 'Copied';
+      setTimeout(() => { $('copyPack').textContent = 'Copy Launch Pack'; }, 1100);
+    });
+
+    buildPacket();
+  </script>
+</body>
+</html>
