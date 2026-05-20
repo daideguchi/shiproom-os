@@ -10,7 +10,7 @@ Mind the Product requires Novus to be installed before submission, and the submi
 
 - The Mind the Product Devpost page says projects without Novus installed are ineligible for prizes.
 - Pendo's public Novus announcement frames Novus as a product agent that connects shipped software to product intelligence.
-- Pendo's install documentation says the web install script includes a unique API key and initializes the Pendo Web SDK.
+- Pendo's install documentation says the web install script includes a unique public app ID and initializes the Pendo Web SDK.
 - Pendo's install documentation also says the install script must be initialized before tracking starts, and that data can take time to appear.
 
 Source links:
@@ -35,16 +35,16 @@ Do not:
 
 When the real snippet is available, add it in `index.html` before `</head>` or through the provider's recommended installation route.
 
-The repo includes a helper that installs the real frontend snippet only when a non-placeholder key is provided:
+The repo includes a helper that installs the real frontend snippet only when a non-placeholder Public App ID is provided:
 
 ```bash
-PENDO_API_KEY=real_project_key \
+PENDO_PUBLIC_APP_ID=real_public_app_id \
 PENDO_VISITOR_ID=shiproom-public-demo \
 PENDO_ACCOUNT_ID=shiproom-os \
 node scripts/install_pendo_snippet.mjs
 ```
 
-The key is expected to be a frontend install key from Pendo/Novus. Do not run this with a fake key.
+The app ID is expected to be the frontend Public App ID from Pendo/Novus. Do not run this with a fake value. `PENDO_API_KEY` remains accepted only as a backward-compatible environment variable name for older handoffs.
 
 Expected proof after installation:
 

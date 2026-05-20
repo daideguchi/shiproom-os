@@ -35,7 +35,7 @@ scripts/verify_novus_installed.py
   fails until media/novus-dashboard-proof.png exists
 
 scripts/install_pendo_snippet.mjs
-  installs the real Pendo/Novus frontend snippet only when PENDO_API_KEY is set
+  installs the real Pendo/Novus frontend snippet only when PENDO_PUBLIC_APP_ID is set
   refuses obvious placeholders
 ```
 
