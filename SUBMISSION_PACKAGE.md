@@ -41,6 +41,9 @@ The challenge is about shipping real products. Shiproom OS focuses on the gap be
 node scripts/verify_shiproom.mjs
 shiproom_verify_ok
 sections=11
+
+python3 scripts/verify_no_secrets.py
+shiproom_no_secrets_ok
 ```
 
 Live verification:

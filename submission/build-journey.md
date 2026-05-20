@@ -32,6 +32,7 @@ Deepened the product:
 - next-agent brief for human/AI continuation
 - safe Novus/Pendo event map for activation tracking
 - stronger Playwright verifier
+- no-secrets verifier for the public repo
 - strict future Novus live-proof verifier
 - natural English demo video draft
 - guarded Pendo snippet installer that refuses placeholder keys
