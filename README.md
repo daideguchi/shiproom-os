@@ -15,6 +15,7 @@ Everyone can generate ideas now. The hard part is finishing, proving, and launch
 - saved local packet history
 - evidence ledger
 - analytics / Novus proof slot
+- judge snapshot answering who, what, how, proof, and human-control boundaries
 
 ## Live Demo
 
@@ -43,7 +44,7 @@ shiproom_claim_boundary_ok
 Latest local proof:
 
 ```text
-sections=8
+sections=9
 screenshot=media/shiproom-os-mvp-full.png
 ```
 
@@ -69,6 +70,7 @@ Shiproom OS now includes:
 - JSON launch-pack export
 - Markdown submission brief
 - local saved-packet history
+- judge snapshot for copy-ready submission framing
 
 ## Novus Status
 

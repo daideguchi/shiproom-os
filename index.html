@@ -411,6 +411,35 @@
       gap: 10px;
     }
 
+    .answer-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .answer-item {
+      border-top: 1px solid var(--line);
+      padding-top: 10px;
+      min-height: 92px;
+    }
+
+    .answer-item:nth-child(-n + 3) {
+      border-top: 0;
+      padding-top: 0;
+    }
+
+    .answer-item b {
+      display: block;
+      font-size: 13px;
+      margin-bottom: 4px;
+    }
+
+    .answer-item p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
     .evidence-item {
       border: 1px solid var(--line);
       border-radius: 8px;
@@ -463,8 +492,18 @@
         flex: 1;
       }
 
-      .status-strip, .board, .evidence-grid {
+      .status-strip, .board, .evidence-grid, .answer-grid {
         grid-template-columns: 1fr;
+      }
+
+      .answer-item:nth-child(-n + 3) {
+        border-top: 1px solid var(--line);
+        padding-top: 10px;
+      }
+
+      .answer-item:first-child {
+        border-top: 0;
+        padding-top: 0;
       }
 
       .timeline {
@@ -586,6 +625,14 @@
         </div>
 
         <div class="board">
+          <section class="panel section wide">
+            <div class="section-header">
+              <h2>Judge Snapshot</h2>
+              <span class="badge blue">who / what / how</span>
+            </div>
+            <div class="answer-grid" id="judgeOutput"></div>
+          </section>
+
           <section class="panel section">
             <div class="section-header">
               <h2>Product Frame</h2>
@@ -742,6 +789,10 @@ ${pack.target_user}
 
 ${pack.problem}
 
+## Judge Snapshot
+
+${Object.entries(pack.judge_snapshot).map(([key, value]) => `- ${key}: ${value}`).join('\n')}
+
 ## Promise
 
 ${pack.promise}
@@ -807,6 +858,15 @@ ${pack.claim_boundary}
         ['Why now', 'AI can generate work quickly, so builders need a stricter system for finishing and proving it.']
       ];
 
+      const judge = [
+        ['Who', sentence(user)],
+        ['What hurts', sentence(pain)],
+        ['How Shiproom OS helps', 'It turns the idea into a small launch packet with scope, proof, copy, timeline, and evidence.'],
+        ['What judges can verify today', `The public MVP loads at ${proofUrl} and exports JSON plus Markdown launch briefs.`],
+        ['What is still blocked', novusReady ? 'Novus dashboard proof is attached before prize submission.' : 'Novus dashboard proof is still required before prize eligibility is claimed.'],
+        ['Human control', 'A person must approve launch claims before submission; the tool does not fake proof.']
+      ];
+
       const scope = [
         'One intake form for idea, target user, pain, and timebox.',
         'A deterministic launch packet that can be reviewed by a human.',
@@ -869,6 +929,7 @@ ${pack.claim_boundary}
         ['Launch', 'Publish with human-approved copy.']
       ];
 
+      $('judgeOutput').innerHTML = judge.map(([k, v]) => `<div class="answer-item"><b>${k}</b><p>${v}</p></div>`).join('');
       $('frameOutput').innerHTML = frame.map(([k, v]) => `<div class="line-item"><b>${k}</b><p>${v}</p></div>`).join('');
       $('scopeOutput').innerHTML = `<ul>${scope.map((item) => `<li>${item}</li>`).join('')}</ul>`;
       $('proofOutput').innerHTML = `<ul>${proof.map((item) => `<li>${item}</li>`).join('')}</ul>`;
@@ -892,6 +953,7 @@ ${pack.claim_boundary}
         public_url: proofUrl,
         user_signal: userSignal,
         novus_status: novusStatus,
+        judge_snapshot: Object.fromEntries(judge),
         promise: `Turn the idea into a launchable product packet with scope, proof, release notes, and launch copy.`,
         first_version_scope: scope,
         proof_checklist: proof,

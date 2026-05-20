@@ -34,13 +34,16 @@ try {
   if (!packet.evidence_ledger.some((item) => item.name === 'Novus.ai' && item.status === 'blocked')) {
     throw new Error('Novus evidence boundary missing');
   }
+  if (!packet.judge_snapshot || !packet.judge_snapshot.Who || !packet.judge_snapshot['Human control']) {
+    throw new Error('judge snapshot missing');
+  }
   const markdown = await page.locator('#markdownOutput').innerText();
-  if (!markdown.includes('Evidence Ledger') || !markdown.includes('Claim Boundary')) {
+  if (!markdown.includes('Judge Snapshot') || !markdown.includes('Evidence Ledger') || !markdown.includes('Claim Boundary')) {
     throw new Error('markdown launch brief missing required sections');
   }
 
   const cards = await page.locator('.section').count();
-  if (cards < 8) {
+  if (cards < 9) {
     throw new Error(`not enough sections: ${cards}`);
   }
   await page.getByRole('button', { name: 'Save Snapshot' }).click();

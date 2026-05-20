@@ -9,6 +9,7 @@ index.html
   product intake
   deterministic launch-packet builder
   proof checklist renderer
+  judge snapshot renderer
   launch-copy renderer
   evidence ledger renderer
   JSON export
@@ -18,6 +19,7 @@ index.html
 scripts/verify_shiproom.mjs
   opens the app in Chrome through Playwright
   verifies the generated launch packet
+  verifies the judge snapshot exists
   verifies the Novus proof slot exists
   verifies the Novus evidence boundary remains blocked until proof exists
   verifies saved-packet history
