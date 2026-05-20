@@ -11,6 +11,14 @@ Mind the Product requires Novus to be installed before submission, and the submi
 - The Mind the Product Devpost page says projects without Novus installed are ineligible for prizes.
 - Pendo's public Novus announcement frames Novus as a product agent that connects shipped software to product intelligence.
 - Pendo's install documentation says the web install script includes a unique API key and initializes the Pendo Web SDK.
+- Pendo's install documentation also says the install script must be initialized before tracking starts, and that data can take time to appear.
+
+Source links:
+
+- https://mindtheproduct.devpost.com/
+- https://www.pendo.io/pendo-blog/introducing-novus/
+- https://support.pendo.io/hc/en-us/articles/21362607464987-Components-of-the-install-script
+- https://support.pendo.io/hc/en-us/articles/17606930575387-Installation-options-for-a-direct-web-implementation-of-Pendo
 
 ## Required Human / Account Step
 
@@ -33,7 +41,7 @@ Expected proof after installation:
 - dashboard receives at least one visit/session/event
 - screenshot of the dashboard is saved under `media/`
 - README and submission package link to the screenshot
-- app evidence ledger is updated to `Verified with dashboard screenshot`
+- app evidence ledger is updated to a real dashboard-proof status
 
 ## Verification Command To Add Later
 

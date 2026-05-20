@@ -30,12 +30,14 @@ Open `index.html` in a browser.
 
 ```bash
 node scripts/verify_shiproom.mjs
+python3 scripts/verify_claim_boundary.py
 ```
 
 Expected:
 
 ```text
 shiproom_verify_ok
+shiproom_claim_boundary_ok
 ```
 
 Latest local proof:
