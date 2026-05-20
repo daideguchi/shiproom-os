@@ -30,6 +30,7 @@ Deepened the product:
 - judge snapshot for who / what / how / proof / human-control framing
 - learning loop for post-launch measurement
 - next-agent brief for human/AI continuation
+- safe Novus/Pendo event map for activation tracking
 - stronger Playwright verifier
 - strict future Novus live-proof verifier
 - natural English demo video draft

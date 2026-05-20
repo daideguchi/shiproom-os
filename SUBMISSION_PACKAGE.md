@@ -26,6 +26,7 @@ Shiproom OS helps solo builders convert a messy idea into a concrete launch pack
 - evidence ledger
 - learning loop for what to measure after launch
 - next-agent handoff brief for human/AI continuation
+- safe Novus/Pendo event map for activation tracking
 - saved local packet history
 - Novus.ai proof slot
 - judge snapshot that explains who, what hurts, how it helps, what is verified, and what is still blocked
@@ -73,6 +74,7 @@ HTML, CSS, JavaScript, Playwright verification, GitHub Pages target.
 ## Submission Docs
 
 - `docs/NOVUS_INSTALL_PLAN.md`
+- `docs/NOVUS_EVENT_MAP.md`
 - `submission/devpost-draft.md`
 - `submission/demo-script.md`
 - `submission/build-journey.md`

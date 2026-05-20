@@ -46,6 +46,13 @@ try {
   if (!packet.judge_snapshot || !packet.judge_snapshot.Who || !packet.judge_snapshot['Human control']) {
     throw new Error('judge snapshot missing');
   }
+  if (!packet.analytics_events?.includes('shiproom_packet_built') || !packet.analytics_events?.includes('shiproom_snapshot_saved')) {
+    throw new Error('Pendo/Novus event map missing from launch packet');
+  }
+  const html = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
+  if (!html.includes('safePendoTrack') || !html.includes('shiproom_json_downloaded')) {
+    throw new Error('safe Pendo tracking hooks missing');
+  }
   const markdown = await page.locator('#markdownOutput').innerText();
   if (!markdown.includes('Judge Snapshot') || !markdown.includes('Evidence Ledger') || !markdown.includes('Learning Loop') || !markdown.includes('Next Agent Brief') || !markdown.includes('Claim Boundary')) {
     throw new Error('markdown launch brief missing required sections');

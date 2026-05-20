@@ -743,6 +743,15 @@
     let currentPacket = null;
     let currentMarkdown = '';
 
+    const analyticsEvents = [
+      'shiproom_packet_built',
+      'shiproom_snapshot_saved',
+      'shiproom_markdown_copied',
+      'shiproom_pack_copied',
+      'shiproom_json_downloaded',
+      'shiproom_markdown_downloaded'
+    ];
+
     const sample = {
       idea: 'A lightweight control room that helps solo builders ship AI-assisted products without losing the thread.',
       user: 'solo builders with too many unfinished AI ideas',
@@ -878,7 +887,27 @@ ${pack.claim_boundary}
       URL.revokeObjectURL(url);
     }
 
-    function buildPacket() {
+    function safePendoTrack(name, payload = {}) {
+      if (window.pendo && typeof window.pendo.track === 'function') {
+        window.pendo.track(name, {
+          product: 'Shiproom OS',
+          ...payload
+        });
+      }
+    }
+
+    function eventPayload(pack = currentPacket) {
+      return {
+        launch_mode: pack?.launch_mode || launchMode,
+        timebox: pack?.timebox || $('timebox').value,
+        novus_status: pack?.novus_status || $('novusStatus').value,
+        proof_items: pack?.proof_checklist?.length || 0,
+        evidence_items: pack?.evidence_ledger?.length || 0,
+        has_public_url: Boolean(pack?.public_url || $('proofUrl').value)
+      };
+    }
+
+    function buildPacket(options = {}) {
       const idea = clean($('idea').value, sample.idea);
       const user = clean($('user').value, sample.user);
       const pain = clean($('pain').value, sample.pain);
@@ -1060,6 +1089,7 @@ ${pack.claim_boundary}
         proof_checklist: proof,
         evidence_ledger: evidence,
         learning_loop: learning,
+        analytics_events: analyticsEvents,
         agent_handoff: Object.fromEntries(agentBrief),
         launch_copy: Object.fromEntries(copy),
         claim_boundary: 'Novus.ai and public launch proof must be attached before prize submission.'
@@ -1068,6 +1098,9 @@ ${pack.claim_boundary}
       currentMarkdown = toMarkdown(pack);
       $('exportOutput').textContent = JSON.stringify(pack, null, 2);
       $('markdownOutput').textContent = currentMarkdown;
+      if (options.track) {
+        safePendoTrack('shiproom_packet_built', eventPayload(pack));
+      }
     }
 
     document.querySelectorAll('.segment').forEach((button) => {
@@ -1079,7 +1112,7 @@ ${pack.claim_boundary}
       });
     });
 
-    $('buildPack').addEventListener('click', buildPacket);
+    $('buildPack').addEventListener('click', () => buildPacket({ track: true }));
     $('loadSample').addEventListener('click', () => {
       $('idea').value = sample.idea;
       $('user').value = sample.user;
@@ -1097,25 +1130,30 @@ ${pack.claim_boundary}
       buildPacket();
       const history = loadHistory();
       writeHistory([{ ...currentPacket, saved_at: new Date().toISOString() }, ...history]);
+      safePendoTrack('shiproom_snapshot_saved', eventPayload());
       $('saveSnapshot').textContent = 'Saved';
       setTimeout(() => { $('saveSnapshot').textContent = 'Save Snapshot'; }, 1100);
     });
     $('copyMarkdown').addEventListener('click', async () => {
       await navigator.clipboard.writeText(currentMarkdown);
+      safePendoTrack('shiproom_markdown_copied', eventPayload());
       $('copyMarkdown').textContent = 'Copied';
       setTimeout(() => { $('copyMarkdown').textContent = 'Copy Markdown'; }, 1100);
     });
     $('copyPack').addEventListener('click', async () => {
       await navigator.clipboard.writeText($('exportOutput').textContent);
+      safePendoTrack('shiproom_pack_copied', eventPayload());
       $('copyPack').textContent = 'Copied';
       setTimeout(() => { $('copyPack').textContent = 'Copy Launch Pack'; }, 1100);
     });
     $('downloadJson').addEventListener('click', () => {
       buildPacket();
+      safePendoTrack('shiproom_json_downloaded', eventPayload());
       downloadFile('shiproom-launch-pack.json', JSON.stringify(currentPacket, null, 2), 'application/json');
     });
     $('downloadMarkdown').addEventListener('click', () => {
       buildPacket();
+      safePendoTrack('shiproom_markdown_downloaded', eventPayload());
       downloadFile('shiproom-launch-brief.md', currentMarkdown, 'text/markdown');
     });
 

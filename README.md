@@ -16,6 +16,7 @@ Everyone can generate ideas now. The hard part is finishing, proving, and launch
 - evidence ledger
 - learning loop for post-launch signals
 - next-agent handoff brief
+- safe Novus/Pendo event map for activation tracking
 - analytics / Novus proof slot
 - judge snapshot answering who, what, how, proof, and human-control boundaries
 
@@ -109,6 +110,7 @@ Shiproom OS now includes:
 - evidence ledger
 - learning loop
 - next-agent handoff brief
+- safe Novus/Pendo event map
 - JSON launch-pack export
 - Markdown submission brief
 - local saved-packet history
@@ -136,6 +138,7 @@ Mind the Product presents World Product Day: Everyone Ships Now
 - [Submission package](SUBMISSION_PACKAGE.md)
 - [Architecture](ARCHITECTURE.md)
 - [Novus install plan](docs/NOVUS_INSTALL_PLAN.md)
+- [Novus/Pendo event map](docs/NOVUS_EVENT_MAP.md)
 - [Devpost draft](submission/devpost-draft.md)
 - [Demo script](submission/demo-script.md)
 - [Build journey](submission/build-journey.md)

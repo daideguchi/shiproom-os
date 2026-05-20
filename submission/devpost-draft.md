@@ -25,13 +25,14 @@ Shiproom OS turns a rough idea into a launch packet:
 - evidence ledger
 - learning loop for what to measure after launch
 - next-agent handoff brief for human/AI continuation
+- safe Novus/Pendo event map for activation tracking
 - JSON launch-pack export
 - Markdown submission brief
 - saved local snapshots
 
 ## How We Built It
 
-The current MVP is a static web app with deterministic generation logic, local browser storage, and Playwright verification. It is deployed on GitHub Pages so judges can open it immediately. A guarded Pendo install helper is included for the Novus/Pendo step, but it intentionally refuses missing or placeholder keys.
+The current MVP is a static web app with deterministic generation logic, local browser storage, and Playwright verification. It is deployed on GitHub Pages so judges can open it immediately. A guarded Pendo install helper and safe event map are included for the Novus/Pendo step, but the installer intentionally refuses missing or placeholder keys.
 
 ## Links
 

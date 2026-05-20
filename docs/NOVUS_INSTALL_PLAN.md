@@ -49,6 +49,7 @@ The key is expected to be a frontend install key from Pendo/Novus. Do not run th
 Expected proof after installation:
 
 - live page loads with the real tracking snippet
+- event map in `docs/NOVUS_EVENT_MAP.md` is used for low-risk activation tracking
 - dashboard receives at least one visit/session/event
 - screenshot of the dashboard is saved under `media/`
 - README and submission package link to the screenshot
