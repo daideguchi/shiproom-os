@@ -24,6 +24,11 @@ scripts/verify_shiproom.mjs
   verifies the Novus evidence boundary remains blocked until proof exists
   verifies saved-packet history
   captures a full-page screenshot
+
+scripts/verify_novus_installed.py
+  future live-proof gate
+  fails until index.html contains the real Pendo/Novus initialize snippet
+  fails until media/novus-dashboard-proof.png exists
 ```
 
 ## Data Flow

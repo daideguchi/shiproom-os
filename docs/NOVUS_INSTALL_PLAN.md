@@ -50,4 +50,4 @@ node scripts/verify_shiproom.mjs
 python3 scripts/verify_novus_installed.py
 ```
 
-`verify_novus_installed.py` should only pass when a real configured snippet and dashboard proof file exist.
+`verify_novus_installed.py` now exists and is intentionally strict. It should fail until a real Pendo/Novus snippet is installed in `index.html` and `media/novus-dashboard-proof.png` exists.

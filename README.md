@@ -76,6 +76,14 @@ Shiproom OS now includes:
 
 Mind the Product requires Novus.ai to be installed before submission. This repo does not claim that requirement is complete yet. The app exposes the Novus proof boundary directly in the generated proof checklist, evidence ledger, and launch-pack JSON.
 
+Future live-proof verifier:
+
+```bash
+python3 scripts/verify_novus_installed.py
+```
+
+This command is expected to fail until the real Pendo/Novus snippet and dashboard screenshot are attached.
+
 ## Hackathon Target
 
 Mind the Product presents World Product Day: Everyone Ships Now

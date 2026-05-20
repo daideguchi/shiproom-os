@@ -68,3 +68,5 @@ HTML, CSS, JavaScript, Playwright verification, GitHub Pages target.
 ## Claim Boundary
 
 Novus.ai is required for prize eligibility but has not been installed yet. This package keeps that proof slot explicit and blocked until verified.
+
+`scripts/verify_novus_installed.py` is present but intentionally fails until real Pendo/Novus proof exists.
