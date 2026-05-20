@@ -12,6 +12,8 @@ index.html
   judge snapshot renderer
   launch-copy renderer
   evidence ledger renderer
+  learning-loop renderer
+  next-agent handoff renderer
   JSON export
   Markdown launch brief export
   localStorage saved packet history
@@ -20,6 +22,8 @@ scripts/verify_shiproom.mjs
   opens the app in Chrome through Playwright
   verifies the generated launch packet
   verifies the judge snapshot exists
+  verifies the learning loop exists
+  verifies the next-agent handoff exists
   verifies the Novus proof slot exists
   verifies the Novus evidence boundary remains blocked until proof exists
   verifies saved-packet history
@@ -38,6 +42,8 @@ idea + target user + pain + timebox + launch mode
   -> product frame
   -> first-version scope
   -> proof checklist
+  -> learning loop
+  -> next-agent handoff
   -> launch copy
   -> shipping timeline
   -> launch-pack JSON
@@ -61,3 +67,4 @@ Add persistence and public proof:
 - exportable markdown launch pack
 - Novus.ai installation proof slot
 - Novus.ai installation proof screenshot
+- measured learning snapshots after Novus/Pendo is live

@@ -573,6 +573,21 @@
         </label>
 
         <label>
+          Learning question
+          <input id="learningQuestion" value="Do builders understand the next proof step within 30 seconds?">
+        </label>
+
+        <label>
+          Activation signal
+          <input id="activationSignal" value="builder exports a Markdown launch brief or saves a packet">
+        </label>
+
+        <label>
+          Next agent task
+          <input id="agentTask" value="verify Novus/Pendo proof, refresh the README, and prepare the final Devpost packet">
+        </label>
+
+        <label>
           Novus status
           <select id="novusStatus">
             <option selected>Not installed</option>
@@ -683,6 +698,22 @@
 
           <section class="panel section wide">
             <div class="section-header">
+              <h2>Learning Loop</h2>
+              <span class="badge blue">ship / measure / decide</span>
+            </div>
+            <div class="evidence-grid" id="learningOutput"></div>
+          </section>
+
+          <section class="panel section wide">
+            <div class="section-header">
+              <h2>Next Agent Brief</h2>
+              <span class="badge green">handoff-ready</span>
+            </div>
+            <div class="answer-grid" id="agentOutput"></div>
+          </section>
+
+          <section class="panel section wide">
+            <div class="section-header">
               <h2>Launch Pack Export</h2>
               <span class="badge blue">copy-ready</span>
             </div>
@@ -719,6 +750,9 @@
       timebox: '7 days',
       proofUrl: 'https://daideguchi.github.io/shiproom-os/',
       userSignal: 'first public MVP is live; Novus dashboard proof is still pending',
+      learningQuestion: 'Do builders understand the next proof step within 30 seconds?',
+      activationSignal: 'builder exports a Markdown launch brief or saves a packet',
+      agentTask: 'verify Novus/Pendo proof, refresh the README, and prepare the final Devpost packet',
       novusStatus: 'Not installed'
     };
 
@@ -768,6 +802,9 @@
           $('timebox').value = item.timebox;
           $('proofUrl').value = item.public_url || sample.proofUrl;
           $('userSignal').value = item.user_signal || sample.userSignal;
+          $('learningQuestion').value = item.learning_question || sample.learningQuestion;
+          $('activationSignal').value = item.activation_signal || sample.activationSignal;
+          $('agentTask').value = item.next_agent_task || sample.agentTask;
           $('novusStatus').value = item.novus_status || sample.novusStatus;
           launchMode = item.launch_mode || 'Proof';
           document.querySelectorAll('.segment').forEach((segment) => {
@@ -809,6 +846,14 @@ ${pack.proof_checklist.map((item) => `- ${item}`).join('\n')}
 
 ${pack.evidence_ledger.map((item) => `- ${item.name}: ${item.status} - ${item.note}`).join('\n')}
 
+## Learning Loop
+
+${pack.learning_loop.map((item) => `- ${item.name}: ${item.status} - ${item.note}`).join('\n')}
+
+## Next Agent Brief
+
+${Object.entries(pack.agent_handoff).map(([key, value]) => `- ${key}: ${value}`).join('\n')}
+
 ## Launch Copy
 
 Tagline: ${pack.launch_copy.Tagline}
@@ -840,6 +885,9 @@ ${pack.claim_boundary}
       const timebox = clean($('timebox').value, sample.timebox);
       const proofUrl = clean($('proofUrl').value, sample.proofUrl);
       const userSignal = clean($('userSignal').value, sample.userSignal);
+      const learningQuestion = clean($('learningQuestion').value, sample.learningQuestion);
+      const activationSignal = clean($('activationSignal').value, sample.activationSignal);
+      const agentTask = clean($('agentTask').value, sample.agentTask);
       const novusStatus = clean($('novusStatus').value, sample.novusStatus);
       const proofCount = launchMode === 'Quiet' ? 4 : launchMode === 'Public' ? 7 : 5;
       const novusReady = novusStatus === 'Verified with dashboard screenshot';
@@ -915,10 +963,52 @@ ${pack.claim_boundary}
         }
       ];
 
+      const learning = [
+        {
+          name: 'Learning question',
+          status: 'defined',
+          note: learningQuestion
+        },
+        {
+          name: 'Activation signal',
+          status: novusReady ? 'ready to measure' : 'defined before analytics',
+          note: activationSignal
+        },
+        {
+          name: 'Current signal',
+          status: userSignal.toLowerCase().includes('pending') ? 'pending' : 'attached',
+          note: userSignal
+        },
+        {
+          name: 'Next decision',
+          status: 'human-controlled',
+          note: novusReady ? 'Use dashboard evidence to choose the next product experiment.' : 'Install Novus/Pendo before claiming measured learning.'
+        },
+        {
+          name: 'Next experiment',
+          status: 'queued',
+          note: `Run a ${timebox} cycle around the activation signal, then export a fresh launch packet.`
+        },
+        {
+          name: 'Risk boundary',
+          status: 'guarded',
+          note: 'The tool can frame a decision, but it cannot invent usage proof.'
+        }
+      ];
+
       const copy = [
         ['Tagline', 'Everyone can generate. Fewer people ship.'],
         ['Launch post', `I built Shiproom OS for ${user}. It helps turn a rough idea into scope, proof, launch notes, and a reviewable public launch packet.`],
         ['Boundary', 'This tool does not pretend a product shipped until a public URL, demo, and proof checklist exist.']
+      ];
+
+      const agentBrief = [
+        ['Context', `Shiproom OS is preparing "${idea}" for ${user}.`],
+        ['Current truth', novusReady ? 'Novus/Pendo proof is marked verified by the human operator.' : 'Novus/Pendo proof is still blocked and must not be claimed.'],
+        ['Next action', sentence(agentTask)],
+        ['Stopline', 'Do not submit, publish, or claim platform proof until a human approves the final packet.'],
+        ['Definition of done', 'Live URL, README, demo video, evidence ledger, build journey, and analytics proof all agree.'],
+        ['Owner boundary', 'AI can prepare and verify the packet; the human owns final claims and submission.']
       ];
 
       const steps = [
@@ -942,6 +1032,14 @@ ${pack.claim_boundary}
           <p>${item.note}</p>
         </div>
       `).join('');
+      $('learningOutput').innerHTML = learning.map((item) => `
+        <div class="evidence-item">
+          <b>${item.name}</b>
+          <span class="badge ${item.status === 'ready to measure' || item.status === 'attached' ? 'green' : item.status === 'guarded' ? 'red' : 'blue'}">${item.status}</span>
+          <p>${item.note}</p>
+        </div>
+      `).join('');
+      $('agentOutput').innerHTML = agentBrief.map(([k, v]) => `<div class="answer-item"><b>${k}</b><p>${v}</p></div>`).join('');
 
       const pack = {
         product: 'Shiproom OS',
@@ -952,12 +1050,17 @@ ${pack.claim_boundary}
         problem: pain,
         public_url: proofUrl,
         user_signal: userSignal,
+        learning_question: learningQuestion,
+        activation_signal: activationSignal,
+        next_agent_task: agentTask,
         novus_status: novusStatus,
         judge_snapshot: Object.fromEntries(judge),
         promise: `Turn the idea into a launchable product packet with scope, proof, release notes, and launch copy.`,
         first_version_scope: scope,
         proof_checklist: proof,
         evidence_ledger: evidence,
+        learning_loop: learning,
+        agent_handoff: Object.fromEntries(agentBrief),
         launch_copy: Object.fromEntries(copy),
         claim_boundary: 'Novus.ai and public launch proof must be attached before prize submission.'
       };
@@ -984,6 +1087,9 @@ ${pack.claim_boundary}
       $('timebox').value = sample.timebox;
       $('proofUrl').value = sample.proofUrl;
       $('userSignal').value = sample.userSignal;
+      $('learningQuestion').value = sample.learningQuestion;
+      $('activationSignal').value = sample.activationSignal;
+      $('agentTask').value = sample.agentTask;
       $('novusStatus').value = sample.novusStatus;
       buildPacket();
     });

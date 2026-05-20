@@ -14,6 +14,8 @@ Everyone can generate ideas now. The hard part is finishing, proving, and launch
 - Markdown submission brief
 - saved local packet history
 - evidence ledger
+- learning loop for post-launch signals
+- next-agent handoff brief
 - analytics / Novus proof slot
 - judge snapshot answering who, what, how, proof, and human-control boundaries
 
@@ -72,7 +74,7 @@ shiproom_demo_video_ok
 Latest local proof:
 
 ```text
-sections=9
+sections=11
 screenshot=media/shiproom-os-mvp-full.png
 ```
 
@@ -95,6 +97,8 @@ Shiproom OS now includes:
 - launch copy
 - shipping timeline
 - evidence ledger
+- learning loop
+- next-agent handoff brief
 - JSON launch-pack export
 - Markdown submission brief
 - local saved-packet history

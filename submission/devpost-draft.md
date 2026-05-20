@@ -23,6 +23,8 @@ Shiproom OS turns a rough idea into a launch packet:
 - launch copy
 - shipping timeline
 - evidence ledger
+- learning loop for what to measure after launch
+- next-agent handoff brief for human/AI continuation
 - JSON launch-pack export
 - Markdown submission brief
 - saved local snapshots

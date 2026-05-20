@@ -59,9 +59,11 @@ Then it turns the idea into first-version scope, a proof checklist, launch copy,
 
 The evidence ledger is the important boundary. Public URL, user signal, demo video, build journey, human review, and Novus proof all have visible states.
 
+Then the learning loop asks what should be measured after launch, what activation means, and what decision comes next.
+
 If Novus or Pendo proof is missing, the tool says so. The live-proof verifier also fails on purpose until the real dashboard screenshot exists.
 
-The packet can be exported as JSON or Markdown, so the builder can move from idea to README, Devpost draft, and launch notes without losing the thread.
+The packet can be exported as JSON or Markdown, and the next-agent brief makes continuation clear for either a human teammate or an AI assistant.
 
 Everyone can generate. Fewer people ship. Shiproom OS closes that last mile with proof, not vibes.
 TEXT
@@ -97,15 +99,15 @@ make_screenshot_slide "$ROOT/media/shiproom-os-pages-full.png" \
   "$TMP_DIR/slide-3.png"
 
 make_screenshot_slide "$ROOT/media/shiproom-os-pages-full.png" \
-  "Evidence Ledger" \
-  "Public URL, user signal, demo video, build journey, human review, and Novus proof." \
-  "4 / 6  No fake proof" \
+  "Evidence And Learning" \
+  "Evidence states feed a learning loop: measure activation, decide the next experiment." \
+  "4 / 6  No fake proof, no lost learning" \
   "$TMP_DIR/slide-4.png"
 
 make_screenshot_slide "$ROOT/media/shiproom-os-mvp-full.png" \
   "Export The Handoff" \
-  "JSON and Markdown exports make the work reviewable by humans and future agents." \
-  "5 / 6  README and Devpost ready" \
+  "JSON, Markdown, and next-agent briefs make the work reviewable and continuable." \
+  "5 / 6  Human and AI handoff ready" \
   "$TMP_DIR/slide-5.png"
 
 make_text_slide \

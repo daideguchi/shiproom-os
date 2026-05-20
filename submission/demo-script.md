@@ -24,32 +24,32 @@ The builder starts with a rough idea, the target user, the core pain, and a time
 
 ## 0:55 - 1:30
 
-Click Build Packet and show Judge Snapshot, Product Frame, Scope, Proof Checklist, and Launch Copy.
+Click Build Packet and show Judge Snapshot, Product Frame, Scope, Proof Checklist, Learning Loop, and Launch Copy.
 
 Narration:
 
 ```text
-Shiproom OS creates a judge-ready snapshot first: who it is for, what hurts, how the tool helps, what can be verified today, and what is still blocked. Then it turns that into scope, proof, and launch copy. The important part is that it does not say the product is done just because text exists.
+Shiproom OS creates a judge-ready snapshot first: who it is for, what hurts, how the tool helps, what can be verified today, and what is still blocked. Then it turns that into scope, proof, learning questions, and launch copy. The important part is that it does not say the product is done just because text exists.
 ```
 
 ## 1:30 - 2:05
 
-Show Evidence Ledger and Novus status.
+Show Evidence Ledger, Learning Loop, and Novus status.
 
 Narration:
 
 ```text
-The evidence ledger is the difference between a demo and a product. Public URL, user signal, demo video, build journey, human review, and Novus proof all have visible states. If Novus is not installed, the tool says so, and the live-proof verifier fails on purpose.
+The evidence ledger is the difference between a demo and a product. Public URL, user signal, demo video, build journey, human review, and Novus proof all have visible states. The learning loop then turns those signals into the next product decision. If Novus is not installed, the tool says so, and the live-proof verifier fails on purpose.
 ```
 
 ## 2:05 - 2:35
 
-Show Markdown submission brief and saved snapshots.
+Show Markdown submission brief, next-agent handoff, and saved snapshots.
 
 Narration:
 
 ```text
-The launch packet can be exported as JSON or Markdown, and snapshots can be saved locally while the builder compares directions. The result is a small operating room for getting from idea to public launch.
+The launch packet can be exported as JSON or Markdown, and snapshots can be saved locally while the builder compares directions. The next-agent brief makes the continuation clear for a human teammate or an AI assistant. The result is a small operating room for getting from idea to public launch.
 ```
 
 ## 2:35 - 2:50
