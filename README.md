@@ -71,6 +71,7 @@ Open `index.html` in a browser.
 ```bash
 node scripts/verify_shiproom.mjs
 python3 scripts/verify_no_secrets.py
+python3 scripts/verify_readme_review_hub.py
 python3 scripts/verify_claim_boundary.py
 python3 scripts/verify_demo_video.py
 ```
@@ -80,6 +81,7 @@ Expected:
 ```text
 shiproom_verify_ok
 shiproom_no_secrets_ok
+shiproom_readme_review_hub_ok
 shiproom_claim_boundary_ok
 shiproom_demo_video_ok
 ```

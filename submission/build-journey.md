@@ -33,6 +33,7 @@ Deepened the product:
 - safe Novus/Pendo event map for activation tracking
 - stronger Playwright verifier
 - no-secrets verifier for the public repo
+- README review-hub verifier for public submission completeness
 - strict future Novus live-proof verifier
 - natural English demo video draft
 - guarded Pendo snippet installer that refuses placeholder keys

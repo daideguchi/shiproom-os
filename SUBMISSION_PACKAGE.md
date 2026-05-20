@@ -44,6 +44,9 @@ sections=11
 
 python3 scripts/verify_no_secrets.py
 shiproom_no_secrets_ok
+
+python3 scripts/verify_readme_review_hub.py
+shiproom_readme_review_hub_ok
 ```
 
 Live verification:
