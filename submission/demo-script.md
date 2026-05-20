@@ -24,12 +24,12 @@ The builder starts with a rough idea, the target user, the core pain, and a time
 
 ## 0:55 - 1:30
 
-Click Build Packet and show Product Frame, Scope, Proof Checklist, and Launch Copy.
+Click Build Packet and show Judge Snapshot, Product Frame, Scope, Proof Checklist, and Launch Copy.
 
 Narration:
 
 ```text
-Shiproom OS creates the product frame, cuts the first version down, writes a proof checklist, and drafts launch copy. The important part is that it does not say the product is done just because text exists.
+Shiproom OS creates a judge-ready snapshot first: who it is for, what hurts, how the tool helps, what can be verified today, and what is still blocked. Then it turns that into scope, proof, and launch copy. The important part is that it does not say the product is done just because text exists.
 ```
 
 ## 1:30 - 2:05
@@ -39,7 +39,7 @@ Show Evidence Ledger and Novus status.
 Narration:
 
 ```text
-The evidence ledger is the difference between a demo and a product. Public URL, user signal, demo video, build journey, human review, and Novus proof all have visible states. If Novus is not installed, the tool says so.
+The evidence ledger is the difference between a demo and a product. Public URL, user signal, demo video, build journey, human review, and Novus proof all have visible states. If Novus is not installed, the tool says so, and the live-proof verifier fails on purpose.
 ```
 
 ## 2:05 - 2:35

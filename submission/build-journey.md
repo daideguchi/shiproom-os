@@ -27,7 +27,9 @@ Deepened the product:
 - Markdown submission brief
 - saved packet history
 - explicit Novus status
+- judge snapshot for who / what / how / proof / human-control framing
 - stronger Playwright verifier
+- strict future Novus live-proof verifier
 
 Current limitation:
 
