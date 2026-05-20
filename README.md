@@ -41,6 +41,12 @@ Current local demo video:
 media/shiproom-os-demo.mp4
 ```
 
+Raw demo video URL:
+
+```text
+https://raw.githubusercontent.com/daideguchi/shiproom-os/main/media/shiproom-os-demo.mp4
+```
+
 This is a generated narration draft for review. It is not a final public YouTube/Devpost video until DD approves and the Novus/Pendo proof boundary is resolved.
 
 ## Quick Start

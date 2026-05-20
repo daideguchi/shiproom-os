@@ -37,6 +37,7 @@ The current MVP is a static web app with deterministic generation logic, local b
 - GitHub: https://github.com/daideguchi/shiproom-os
 - Submission package: https://raw.githubusercontent.com/daideguchi/shiproom-os/main/SUBMISSION_PACKAGE.md
 - Screenshot: https://raw.githubusercontent.com/daideguchi/shiproom-os/main/media/shiproom-os-mvp-full.png
+- Demo video draft: https://raw.githubusercontent.com/daideguchi/shiproom-os/main/media/shiproom-os-demo.mp4
 
 ## Built With
 
@@ -46,7 +47,7 @@ HTML, CSS, JavaScript, localStorage, Playwright, GitHub Pages
 
 - Install Novus.ai with a real account/project.
 - Capture the Novus dashboard screenshot.
-- Record a 2-3 minute demo video.
+- Listen to and approve the generated demo video draft, then upload the final public video if Devpost requires a hosted player.
 - Attach build-in-public evidence.
 - DD must approve legal terms and final submission.
 
