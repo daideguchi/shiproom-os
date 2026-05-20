@@ -19,6 +19,16 @@ Everyone can generate ideas now. The hard part is finishing, proving, and launch
 - analytics / Novus proof slot
 - judge snapshot answering who, what, how, proof, and human-control boundaries
 
+## Judge Quick Read
+
+Who it helps: solo builders and tiny teams who can start many ideas but struggle to finish one cleanly.
+
+The problem: AI makes drafts cheap, but it does not automatically create a tight scope, proof plan, launch copy, evidence, or a handoff another person can trust.
+
+How Shiproom OS solves it: the app turns one rough idea into a structured launch packet with scope, proof, copy, timeline, evidence, learning loop, and next-agent handoff.
+
+What is proven now: the public app, screenshots, demo video draft, local verifier, claim-boundary verifier, and submission docs are live. Novus/Pendo proof is intentionally blocked until a real dashboard screenshot exists.
+
 ## Live Demo
 
 ```text
