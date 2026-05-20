@@ -111,6 +111,7 @@ Mind the Product requires Novus.ai to be installed before submission. This repo 
 Future live-proof verifier:
 
 ```bash
+PENDO_API_KEY=real_project_key node scripts/install_pendo_snippet.mjs
 python3 scripts/verify_novus_installed.py
 ```
 

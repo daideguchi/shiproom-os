@@ -35,6 +35,17 @@ Do not:
 
 When the real snippet is available, add it in `index.html` before `</head>` or through the provider's recommended installation route.
 
+The repo includes a helper that installs the real frontend snippet only when a non-placeholder key is provided:
+
+```bash
+PENDO_API_KEY=real_project_key \
+PENDO_VISITOR_ID=shiproom-public-demo \
+PENDO_ACCOUNT_ID=shiproom-os \
+node scripts/install_pendo_snippet.mjs
+```
+
+The key is expected to be a frontend install key from Pendo/Novus. Do not run this with a fake key.
+
 Expected proof after installation:
 
 - live page loads with the real tracking snippet

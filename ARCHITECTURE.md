@@ -33,6 +33,10 @@ scripts/verify_novus_installed.py
   future live-proof gate
   fails until index.html contains the real Pendo/Novus initialize snippet
   fails until media/novus-dashboard-proof.png exists
+
+scripts/install_pendo_snippet.mjs
+  installs the real Pendo/Novus frontend snippet only when PENDO_API_KEY is set
+  refuses obvious placeholders
 ```
 
 ## Data Flow
