@@ -1,0 +1,45 @@
+# Novus Install Plan
+
+## Current Status
+
+Novus.ai is not installed yet.
+
+Mind the Product requires Novus to be installed before submission, and the submission should include proof such as a dashboard screenshot. Shiproom OS already exposes the Novus proof boundary in the app, but prize eligibility should not be claimed until the real Novus dashboard proof exists.
+
+## What We Know From Public Sources
+
+- The Mind the Product Devpost page says projects without Novus installed are ineligible for prizes.
+- Pendo's public Novus announcement frames Novus as a product agent that connects shipped software to product intelligence.
+- Pendo's install documentation says the web install script includes a unique API key and initializes the Pendo Web SDK.
+
+## Required Human / Account Step
+
+Install requires a real Novus or Pendo account/project and a project-specific key or snippet.
+
+Do not:
+
+- paste a fake analytics key
+- use someone else's key
+- claim installation from a placeholder
+- submit before dashboard proof exists
+
+## Integration Slot
+
+When the real snippet is available, add it in `index.html` before `</head>` or through the provider's recommended installation route.
+
+Expected proof after installation:
+
+- live page loads with the real tracking snippet
+- dashboard receives at least one visit/session/event
+- screenshot of the dashboard is saved under `media/`
+- README and submission package link to the screenshot
+- app evidence ledger is updated to `Verified with dashboard screenshot`
+
+## Verification Command To Add Later
+
+```bash
+node scripts/verify_shiproom.mjs
+python3 scripts/verify_novus_installed.py
+```
+
+`verify_novus_installed.py` should only pass when a real configured snippet and dashboard proof file exist.

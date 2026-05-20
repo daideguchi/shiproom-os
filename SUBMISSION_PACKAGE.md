@@ -39,6 +39,14 @@ shiproom_verify_ok
 sections=8
 ```
 
+Live verification:
+
+```text
+shiproom_pages_visual_ok
+evidence=6
+hasMarkdownBoundary=true
+```
+
 Screenshot:
 
 ```text
@@ -48,6 +56,13 @@ media/shiproom-os-mvp-full.png
 ## Built With
 
 HTML, CSS, JavaScript, Playwright verification, GitHub Pages target.
+
+## Submission Docs
+
+- `docs/NOVUS_INSTALL_PLAN.md`
+- `submission/devpost-draft.md`
+- `submission/demo-script.md`
+- `submission/build-journey.md`
 
 ## Claim Boundary
 

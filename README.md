@@ -18,8 +18,6 @@ Everyone can generate ideas now. The hard part is finishing, proving, and launch
 
 ## Live Demo
 
-GitHub Pages will serve `index.html` from the repo root after Pages is enabled:
-
 ```text
 https://daideguchi.github.io/shiproom-os/
 ```
@@ -77,6 +75,15 @@ Mind the Product requires Novus.ai to be installed before submission. This repo 
 ## Hackathon Target
 
 Mind the Product presents World Product Day: Everyone Ships Now
+
+## Submission Docs
+
+- [Submission package](SUBMISSION_PACKAGE.md)
+- [Architecture](ARCHITECTURE.md)
+- [Novus install plan](docs/NOVUS_INSTALL_PLAN.md)
+- [Devpost draft](submission/devpost-draft.md)
+- [Demo script](submission/demo-script.md)
+- [Build journey](submission/build-journey.md)
 
 ## Claim Boundary
 
