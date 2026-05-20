@@ -10,12 +10,17 @@ index.html
   deterministic launch-packet builder
   proof checklist renderer
   launch-copy renderer
+  evidence ledger renderer
   JSON export
+  Markdown launch brief export
+  localStorage saved packet history
 
 scripts/verify_shiproom.mjs
   opens the app in Chrome through Playwright
   verifies the generated launch packet
   verifies the Novus proof slot exists
+  verifies the Novus evidence boundary remains blocked until proof exists
+  verifies saved-packet history
   captures a full-page screenshot
 ```
 
@@ -29,6 +34,8 @@ idea + target user + pain + timebox + launch mode
   -> launch copy
   -> shipping timeline
   -> launch-pack JSON
+  -> submission brief markdown
+  -> optional local saved-packet history
 ```
 
 ## Human Control Boundary
@@ -44,7 +51,6 @@ Shiproom OS drafts a launch packet. It does not claim the product has shipped un
 
 Add persistence and public proof:
 
-- localStorage project history
 - exportable markdown launch pack
-- GitHub Pages live demo
 - Novus.ai installation proof slot
+- Novus.ai installation proof screenshot

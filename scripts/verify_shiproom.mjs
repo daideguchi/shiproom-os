@@ -31,10 +31,22 @@ try {
   if (!packet.proof_checklist.some((item) => item.includes('Novus.ai'))) {
     throw new Error('Novus proof slot missing');
   }
+  if (!packet.evidence_ledger.some((item) => item.name === 'Novus.ai' && item.status === 'blocked')) {
+    throw new Error('Novus evidence boundary missing');
+  }
+  const markdown = await page.locator('#markdownOutput').innerText();
+  if (!markdown.includes('Evidence Ledger') || !markdown.includes('Claim Boundary')) {
+    throw new Error('markdown launch brief missing required sections');
+  }
 
   const cards = await page.locator('.section').count();
-  if (cards < 5) {
+  if (cards < 8) {
     throw new Error(`not enough sections: ${cards}`);
+  }
+  await page.getByRole('button', { name: 'Save Snapshot' }).click();
+  const historyCount = await page.locator('.history-item').count();
+  if (historyCount < 1) {
+    throw new Error('saved packet history missing');
   }
 
   const screenshot = path.join(outDir, 'shiproom-os-mvp-full.png');

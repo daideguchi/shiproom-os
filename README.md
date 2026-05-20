@@ -11,6 +11,9 @@ Everyone can generate ideas now. The hard part is finishing, proving, and launch
 - launch copy
 - shipping timeline
 - JSON launch-pack export
+- Markdown submission brief
+- saved local packet history
+- evidence ledger
 - analytics / Novus proof slot
 
 ## Live Demo
@@ -40,9 +43,36 @@ shiproom_verify_ok
 Latest local proof:
 
 ```text
-sections=6
+sections=8
 screenshot=media/shiproom-os-mvp-full.png
 ```
+
+Responsive proof:
+
+```text
+desktop overflowX=0
+mobile overflowX=0
+evidence items=6
+```
+
+## Current Product Surface
+
+Shiproom OS now includes:
+
+- product intake
+- product frame
+- first-version scope
+- proof checklist
+- launch copy
+- shipping timeline
+- evidence ledger
+- JSON launch-pack export
+- Markdown submission brief
+- local saved-packet history
+
+## Novus Status
+
+Mind the Product requires Novus.ai to be installed before submission. This repo does not claim that requirement is complete yet. The app exposes the Novus proof boundary directly in the generated proof checklist, evidence ledger, and launch-pack JSON.
 
 ## Hackathon Target
 

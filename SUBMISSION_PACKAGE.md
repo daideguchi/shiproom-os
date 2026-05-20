@@ -22,6 +22,9 @@ Shiproom OS helps solo builders convert a messy idea into a concrete launch pack
 - launch copy
 - shipping timeline
 - JSON export
+- Markdown submission brief
+- evidence ledger
+- saved local packet history
 - Novus.ai proof slot
 
 ## Why It Fits Mind the Product
@@ -33,7 +36,7 @@ The challenge is about shipping real products. Shiproom OS focuses on the gap be
 ```text
 node scripts/verify_shiproom.mjs
 shiproom_verify_ok
-sections=6
+sections=8
 ```
 
 Screenshot:
