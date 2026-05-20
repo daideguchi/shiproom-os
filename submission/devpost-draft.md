@@ -31,7 +31,7 @@ Shiproom OS turns a rough idea into a launch packet:
 
 ## How We Built It
 
-The current MVP is a static web app with deterministic generation logic, local browser storage, and Playwright verification. It is deployed on GitHub Pages so judges can open it immediately.
+The current MVP is a static web app with deterministic generation logic, local browser storage, and Playwright verification. It is deployed on GitHub Pages so judges can open it immediately. A guarded Pendo install helper is included for the Novus/Pendo step, but it intentionally refuses missing or placeholder keys.
 
 ## Links
 
@@ -43,11 +43,11 @@ The current MVP is a static web app with deterministic generation logic, local b
 
 ## Built With
 
-HTML, CSS, JavaScript, localStorage, Playwright, GitHub Pages
+HTML, CSS, JavaScript, localStorage, Playwright, GitHub Pages, guarded Pendo install helper
 
 ## What Is Still Needed Before Final Submission
 
-- Install Novus.ai with a real account/project.
+- Install Novus.ai / Pendo with a real account/project.
 - Capture the Novus dashboard screenshot.
 - Listen to and approve the generated demo video draft, then upload the final public video if Devpost requires a hosted player.
 - Attach build-in-public evidence.
@@ -55,4 +55,4 @@ HTML, CSS, JavaScript, localStorage, Playwright, GitHub Pages
 
 ## Claim Boundary
 
-Novus.ai is not installed yet. The app keeps that requirement visible and blocked rather than pretending analytics proof exists.
+Novus.ai / Pendo is not installed yet. The app keeps that requirement visible and blocked rather than pretending analytics proof exists.

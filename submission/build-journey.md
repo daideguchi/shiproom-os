@@ -28,15 +28,21 @@ Deepened the product:
 - saved packet history
 - explicit Novus status
 - judge snapshot for who / what / how / proof / human-control framing
+- learning loop for post-launch measurement
+- next-agent brief for human/AI continuation
 - stronger Playwright verifier
 - strict future Novus live-proof verifier
+- natural English demo video draft
+- guarded Pendo snippet installer that refuses placeholder keys
 
 Current limitation:
 
-- Novus.ai is not installed yet.
+- Novus.ai / Pendo is not installed yet.
+- No analytics dashboard proof is claimed.
 
 Next:
 
-- install Novus with a real project/account
+- install Novus/Pendo with a real project key using the guarded helper
 - capture dashboard proof
-- record the 2-3 minute demo video
+- listen to and approve the current demo video draft
+- finalize the hosted public video before Devpost submission
