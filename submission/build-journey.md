@@ -34,18 +34,17 @@ Deepened the product:
 - stronger Playwright verifier
 - no-secrets verifier for the public repo
 - README review-hub verifier for public submission completeness
-- strict future Novus live-proof verifier
+- strict Novus live-proof verifier
 - natural English demo video draft
 - guarded Pendo snippet installer that refuses placeholder keys
 
-Current limitation:
+Latest proof:
 
-- Novus.ai / Pendo is not installed yet.
-- No analytics dashboard proof is claimed.
+- Novus.ai / Pendo is installed with a real Public App ID.
+- Dashboard proof is attached at `media/novus-dashboard-proof.png`.
+- The public GitHub Pages app was opened after deployment and a launch-packet interaction was triggered.
 
 Next:
 
-- install Novus/Pendo with a real project key using the guarded helper
-- capture dashboard proof
 - listen to and approve the current demo video draft
 - finalize the hosted public video before Devpost submission

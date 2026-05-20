@@ -28,7 +28,8 @@ REQUIRED_MARKERS = [
     "python3 scripts/verify_demo_video.py",
     "shiproom_no_secrets_ok",
     "Novus/Pendo event map",
-    "Novus.ai is not installed yet",
+    "Novus/Pendo dashboard proof",
+    "media/novus-dashboard-proof.png",
 ]
 
 

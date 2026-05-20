@@ -28,7 +28,7 @@ Shiproom OS helps solo builders convert a messy idea into a concrete launch pack
 - next-agent handoff brief for human/AI continuation
 - safe Novus/Pendo event map for activation tracking
 - saved local packet history
-- Novus.ai proof slot
+- Novus/Pendo install proof
 - judge snapshot that explains who, what hurts, how it helps, what is verified, and what is still blocked
 
 ## Why It Fits Mind the Product
@@ -71,7 +71,7 @@ media/shiproom-os-demo.mp4
 https://raw.githubusercontent.com/daideguchi/shiproom-os/main/media/shiproom-os-demo.mp4
 ```
 
-Final public video is still pending until DD approves the draft and Novus/Pendo proof is resolved.
+Final public video is still pending until DD approves the draft and hosted video.
 
 ## Built With
 
@@ -87,6 +87,6 @@ HTML, CSS, JavaScript, Playwright verification, GitHub Pages target.
 
 ## Claim Boundary
 
-Novus.ai is required for prize eligibility but has not been installed yet. This package keeps that proof slot explicit and blocked until verified.
+Novus.ai / Pendo proof is attached at `media/novus-dashboard-proof.png`, and `scripts/verify_novus_installed.py` verifies the real snippet plus dashboard screenshot.
 
-`scripts/verify_novus_installed.py` is present but intentionally fails until real Pendo/Novus proof exists.
+No final Devpost submission has been made yet.

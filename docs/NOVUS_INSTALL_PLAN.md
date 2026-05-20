@@ -2,9 +2,9 @@
 
 ## Current Status
 
-Novus.ai is not installed yet.
+Novus.ai / Pendo is installed in Shiproom OS.
 
-Mind the Product requires Novus to be installed before submission, and the submission should include proof such as a dashboard screenshot. Shiproom OS already exposes the Novus proof boundary in the app, but prize eligibility should not be claimed until the real Novus dashboard proof exists.
+Mind the Product requires Novus to be installed before submission, and the submission should include proof such as a dashboard screenshot. Shiproom OS now includes the real frontend snippet and a dashboard proof screenshot at `media/novus-dashboard-proof.png`.
 
 ## What We Know From Public Sources
 
@@ -22,18 +22,18 @@ Source links:
 
 ## Required Human / Account Step
 
-Install requires a real Novus or Pendo account/project and a project-specific key or snippet.
+Install requires a real Novus or Pendo account/project and a project-specific Public App ID or snippet. This was completed for Shiproom OS on 2026-05-21.
 
 Do not:
 
 - paste a fake analytics key
 - use someone else's key
 - claim installation from a placeholder
-- submit before dashboard proof exists
+- submit before final Devpost approval exists
 
-## Integration Slot
+## Integration Record
 
-When the real snippet is available, add it in `index.html` before `</head>` or through the provider's recommended installation route.
+The real snippet is installed in `index.html` before `</head>`.
 
 The repo includes a helper that installs the real frontend snippet only when a non-placeholder Public App ID is provided:
 
@@ -55,11 +55,11 @@ Expected proof after installation:
 - README and submission package link to the screenshot
 - app evidence ledger is updated to a real dashboard-proof status
 
-## Verification Command To Add Later
+## Verification Command
 
 ```bash
 node scripts/verify_shiproom.mjs
 python3 scripts/verify_novus_installed.py
 ```
 
-`verify_novus_installed.py` now exists and is intentionally strict. It should fail until a real Pendo/Novus snippet is installed in `index.html` and `media/novus-dashboard-proof.png` exists.
+`verify_novus_installed.py` is intentionally strict. It passes only when a Pendo/Novus snippet is installed in `index.html` and `media/novus-dashboard-proof.png` exists.

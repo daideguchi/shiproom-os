@@ -17,7 +17,7 @@ Everyone can generate ideas now. The hard part is finishing, proving, and launch
 - learning loop for post-launch signals
 - next-agent handoff brief
 - safe Novus/Pendo event map for activation tracking
-- analytics / Novus proof slot
+- Novus/Pendo install proof
 - judge snapshot answering who, what, how, proof, and human-control boundaries
 
 ## Judge Quick Read
@@ -28,7 +28,7 @@ The problem: AI makes drafts cheap, but it does not automatically create a tight
 
 How Shiproom OS solves it: the app turns one rough idea into a structured launch packet with scope, proof, copy, timeline, evidence, learning loop, and next-agent handoff.
 
-What is proven now: the public app, screenshots, demo video draft, local verifier, claim-boundary verifier, and submission docs are live. Novus/Pendo proof is intentionally blocked until a real dashboard screenshot exists.
+What is proven now: the public app, screenshots, demo video draft, local verifier, claim-boundary verifier, submission docs, and Novus/Pendo dashboard proof are live.
 
 ## Live Demo
 
@@ -60,7 +60,7 @@ Raw demo video URL:
 https://raw.githubusercontent.com/daideguchi/shiproom-os/main/media/shiproom-os-demo.mp4
 ```
 
-This is a generated narration draft for review. It is not a final public YouTube/Devpost video until DD approves and the Novus/Pendo proof boundary is resolved.
+This is a generated narration draft for review. It is not a final public YouTube/Devpost video until DD approves the final hosted video.
 
 ## Quick Start
 
@@ -122,16 +122,22 @@ Shiproom OS now includes:
 
 ## Novus Status
 
-Mind the Product requires Novus.ai to be installed before submission. This repo does not claim that requirement is complete yet. The app exposes the Novus proof boundary directly in the generated proof checklist, evidence ledger, and launch-pack JSON.
+Mind the Product requires Novus.ai to be installed before submission. Shiproom OS now includes the real Novus/Pendo frontend snippet and a dashboard proof screenshot.
 
-Future live-proof verifier:
+Proof files:
+
+```text
+media/novus-dashboard-proof.png
+media/shiproom-os-mvp-full.png
+```
+
+Live-proof verifier:
 
 ```bash
-PENDO_PUBLIC_APP_ID=real_public_app_id node scripts/install_pendo_snippet.mjs
 python3 scripts/verify_novus_installed.py
 ```
 
-This command is expected to fail until the real Pendo/Novus snippet and dashboard screenshot are attached.
+The public page was opened after deployment and a launch-packet interaction was triggered to produce a real product-usage visit.
 
 ## Hackathon Target
 
@@ -149,4 +155,4 @@ Mind the Product presents World Product Day: Everyone Ships Now
 
 ## Claim Boundary
 
-This is the first public MVP surface. Novus.ai is not installed yet. No Devpost submission has been made.
+This is the first public MVP surface with Novus/Pendo proof attached. No final Devpost submission has been made.

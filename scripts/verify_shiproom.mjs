@@ -31,8 +31,8 @@ try {
   if (!packet.proof_checklist.some((item) => item.includes('Novus.ai'))) {
     throw new Error('Novus proof slot missing');
   }
-  if (!packet.evidence_ledger.some((item) => item.name === 'Novus.ai' && item.status === 'blocked')) {
-    throw new Error('Novus evidence boundary missing');
+  if (!packet.evidence_ledger.some((item) => item.name === 'Novus.ai' && item.status === 'verified')) {
+    throw new Error('Novus verified evidence missing');
   }
   if (!Array.isArray(packet.learning_loop) || packet.learning_loop.length < 6) {
     throw new Error('learning loop missing');
