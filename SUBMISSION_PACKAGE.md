@@ -55,7 +55,13 @@ media/shiproom-os-mvp-full.png
 media/shiproom-os-pages-full.png
 ```
 
-Demo video: pending until the public demo, Novus/Pendo proof, and build journey are final.
+Demo video draft:
+
+```text
+media/shiproom-os-demo.mp4
+```
+
+Final public video is still pending until DD approves the draft and Novus/Pendo proof is resolved.
 
 ## Built With
 

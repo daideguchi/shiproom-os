@@ -35,6 +35,14 @@ Current local verification screenshot:
 
 Demo video status: pending. Do not submit the Mind the Product entry until the 2-3 minute video, public URL, Novus/Pendo dashboard proof, and build journey all agree.
 
+Current local demo video:
+
+```text
+media/shiproom-os-demo.mp4
+```
+
+This is a generated narration draft for review. It is not a final public YouTube/Devpost video until DD approves and the Novus/Pendo proof boundary is resolved.
+
 ## Quick Start
 
 Open `index.html` in a browser.
@@ -44,6 +52,7 @@ Open `index.html` in a browser.
 ```bash
 node scripts/verify_shiproom.mjs
 python3 scripts/verify_claim_boundary.py
+python3 scripts/verify_demo_video.py
 ```
 
 Expected:
@@ -51,6 +60,7 @@ Expected:
 ```text
 shiproom_verify_ok
 shiproom_claim_boundary_ok
+shiproom_demo_video_ok
 ```
 
 Latest local proof:
