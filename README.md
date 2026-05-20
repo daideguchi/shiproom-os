@@ -23,6 +23,18 @@ Everyone can generate ideas now. The hard part is finishing, proving, and launch
 https://daideguchi.github.io/shiproom-os/
 ```
 
+## Demo Media
+
+Current live screenshot:
+
+![Shiproom OS live screenshot](media/shiproom-os-pages-full.png)
+
+Current local verification screenshot:
+
+![Shiproom OS verification screenshot](media/shiproom-os-mvp-full.png)
+
+Demo video status: pending. Do not submit the Mind the Product entry until the 2-3 minute video, public URL, Novus/Pendo dashboard proof, and build journey all agree.
+
 ## Quick Start
 
 Open `index.html` in a browser.
