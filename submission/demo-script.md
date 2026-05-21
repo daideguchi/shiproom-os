@@ -39,7 +39,7 @@ Show Evidence Ledger, Learning Loop, and Novus status.
 Narration:
 
 ```text
-The evidence ledger is the difference between a demo and a product. Public URL, user signal, demo video, build journey, human review, and Novus proof all have visible states. The learning loop then turns those signals into the next product decision. If Novus is not installed, the tool says so, and the live-proof verifier fails on purpose.
+The evidence ledger is the difference between a demo and a product. Public URL, user signal, demo video, build journey, human review, and Novus proof all have visible states. The learning loop then turns those signals into the next product decision. Novus/Pendo proof is attached now, and the verifier keeps that claim honest.
 ```
 
 ## 2:05 - 2:35

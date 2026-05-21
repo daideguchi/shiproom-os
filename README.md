@@ -46,7 +46,7 @@ Current local verification screenshot:
 
 ![Shiproom OS verification screenshot](media/shiproom-os-mvp-full.png)
 
-Demo video status: pending. Do not submit the Mind the Product entry until the 2-3 minute video, public URL, Novus/Pendo dashboard proof, and build journey all agree.
+Demo video status: draft generated after Novus/Pendo proof attachment. Do not submit the Mind the Product entry until DD approves the final hosted video and exact Devpost package.
 
 Current local demo video:
 
@@ -60,7 +60,7 @@ Raw demo video URL:
 https://raw.githubusercontent.com/daideguchi/shiproom-os/main/media/shiproom-os-demo.mp4
 ```
 
-This is a generated narration draft for review. It is not a final public YouTube/Devpost video until DD approves the final hosted video.
+This is a generated narration draft for review. It now reflects that Novus/Pendo proof is attached, but it is not a final public YouTube/Devpost video until DD approves the final hosted video.
 
 ## Quick Start
 

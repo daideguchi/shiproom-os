@@ -61,7 +61,7 @@ The evidence ledger is the important boundary. Public URL, user signal, demo vid
 
 Then the learning loop asks what should be measured after launch, what activation means, and what decision comes next.
 
-If Novus or Pendo proof is missing, the tool says so. The live-proof verifier also fails on purpose until the real dashboard screenshot exists.
+Because Novus and Pendo proof is attached, the live-proof verifier passes. If that proof were missing, the tool would say so instead of pretending the platform requirement is complete.
 
 The packet can be exported as JSON or Markdown, and the next-agent brief makes continuation clear for either a human teammate or an AI assistant.
 
@@ -112,8 +112,8 @@ make_screenshot_slide "$ROOT/media/shiproom-os-mvp-full.png" \
 
 make_text_slide \
   "Honest Submission Boundary" \
-  "Public MVP is verified. Novus/Pendo live proof is still required." \
-  "The verifier should fail until the real dashboard screenshot exists." \
+  "Public MVP is verified. Novus/Pendo live proof is attached." \
+  "The project is stronger because it names exactly what evidence exists." \
   "$TMP_DIR/slide-6.png"
 
 ffmpeg -y \
