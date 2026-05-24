@@ -50,8 +50,8 @@ HTML, CSS, JavaScript, localStorage, Playwright, GitHub Pages, guarded Pendo ins
 
 - Listen to and approve the generated demo video draft, then upload the final public video if Devpost requires a hosted player.
 - Attach build-in-public evidence.
-- DD must approve legal terms and final submission.
+- The project lead must approve legal terms and final submission.
 
 ## Claim Boundary
 
-Novus.ai / Pendo proof is attached. The remaining boundary is final hosted video approval, build-in-public evidence, and DD's explicit final Devpost submission approval.
+Novus.ai / Pendo proof is attached. The remaining boundary is final hosted video approval, build-in-public evidence, and explicit project-lead final Devpost submission approval.

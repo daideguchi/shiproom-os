@@ -71,7 +71,7 @@ media/shiproom-os-demo.mp4
 https://raw.githubusercontent.com/daideguchi/shiproom-os/main/media/shiproom-os-demo.mp4
 ```
 
-Final public video is still pending until DD approves the draft and hosted video. The current draft reflects the attached Novus/Pendo proof.
+Final public video is still pending until the project lead approves the draft and hosted video. The current draft reflects the attached Novus/Pendo proof.
 
 ## Built With
 
