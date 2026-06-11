@@ -122,12 +122,13 @@ Shiproom OS now includes:
 
 ## Novus Status
 
-Mind the Product requires Novus.ai to be installed before submission. Shiproom OS now includes the real Novus/Pendo frontend snippet and a dashboard proof screenshot.
+Mind the Product requires Novus.ai to be installed before submission. Shiproom OS now includes the real Novus/Pendo frontend snippet and a Novus scan proof screenshot captured after GitHub connection.
 
 Proof files:
 
 ```text
 media/novus-dashboard-proof.png
+media/novus-dashboard-proof-2026-06-11.png
 media/shiproom-os-mvp-full.png
 ```
 
