@@ -62,6 +62,7 @@ Screenshot:
 ```text
 media/shiproom-os-mvp-full.png
 media/shiproom-os-pages-full.png
+media/shiproom-public-novus-live-2026-06-11.png
 ```
 
 Demo video draft:
@@ -87,6 +88,6 @@ HTML, CSS, JavaScript, Playwright verification, GitHub Pages target.
 
 ## Claim Boundary
 
-Novus.ai / Pendo proof is attached at `media/novus-dashboard-proof.png`, and `scripts/verify_novus_installed.py` verifies the real snippet plus dashboard screenshot.
+Novus.ai / Pendo proof is attached at `media/novus-dashboard-proof.png`, and `scripts/verify_novus_installed.py` verifies the real snippet plus dashboard screenshot. The resubmission proof at `submission/novus-resubmission-proof-2026-06-11.md` also records the public GitHub Pages browser check: `pendo.initialize`, `pendo.track`, `cdn.pendo.io`, and `data.pendo.io` are observed on the deployed app.
 
 No final Devpost submission has been made yet.

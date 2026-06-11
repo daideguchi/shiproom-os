@@ -129,6 +129,8 @@ Proof files:
 ```text
 media/novus-dashboard-proof.png
 media/novus-dashboard-proof-2026-06-11.png
+media/shiproom-public-novus-live-2026-06-11.png
+submission/novus-resubmission-proof-2026-06-11.md
 media/shiproom-os-mvp-full.png
 ```
 
@@ -136,9 +138,10 @@ Live-proof verifier:
 
 ```bash
 python3 scripts/verify_novus_installed.py
+node scripts/verify_novus_public.mjs
 ```
 
-The public page was opened after deployment and a launch-packet interaction was triggered to produce a real product-usage visit.
+The public page was opened after deployment and a launch-packet interaction was triggered to produce a real product-usage visit. The 2026-06-11 public verifier confirms `pendo.initialize`, `pendo.track`, `cdn.pendo.io`, and `data.pendo.io` on the deployed GitHub Pages app.
 
 ## Hackathon Target
 

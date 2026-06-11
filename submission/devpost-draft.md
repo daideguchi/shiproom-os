@@ -40,6 +40,7 @@ The current MVP is a static web app with deterministic generation logic, local b
 - GitHub: https://github.com/daideguchi/shiproom-os
 - Submission package: https://raw.githubusercontent.com/daideguchi/shiproom-os/main/SUBMISSION_PACKAGE.md
 - Screenshot: https://raw.githubusercontent.com/daideguchi/shiproom-os/main/media/shiproom-os-mvp-full.png
+- Novus public live proof: https://raw.githubusercontent.com/daideguchi/shiproom-os/main/submission/novus-resubmission-proof-2026-06-11.md
 - Demo video draft: https://raw.githubusercontent.com/daideguchi/shiproom-os/main/media/shiproom-os-demo.mp4
 
 ## Built With
@@ -54,4 +55,4 @@ HTML, CSS, JavaScript, localStorage, Playwright, GitHub Pages, guarded Pendo ins
 
 ## Claim Boundary
 
-Novus.ai / Pendo proof is attached. The remaining boundary is final hosted video approval, build-in-public evidence, and explicit project-lead final Devpost submission approval.
+Novus.ai / Pendo proof is attached. The 2026-06-11 resubmission proof records the exact deployed URL, GitHub repository, Novus-recognized Shiproom files, and public browser evidence for `cdn.pendo.io` / `data.pendo.io`. The remaining boundary is final hosted video approval, build-in-public evidence, and explicit project-lead final Devpost submission approval.
